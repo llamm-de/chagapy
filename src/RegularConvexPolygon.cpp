@@ -4,7 +4,6 @@
 #include "Point.h"
 
 #include <cmath>
-#include <iostream>
 
 RegularConvexPolygon::RegularConvexPolygon(const int &num_vertices, const double &radius)
     : GeometricBase(num_vertices), m_radius(radius)
@@ -14,7 +13,7 @@ RegularConvexPolygon::RegularConvexPolygon(const int &num_vertices, const double
 
 void RegularConvexPolygon::create_vertices()
 {
-    const double angle_increment = (m_num_vertices - 2.0f) / m_num_vertices * M_PI;
+    const double angle_increment = 2.0f * M_PI / m_num_vertices;
     double current_angle = 0.0;
 
     for (size_t i = 0; i < m_num_vertices; i++)

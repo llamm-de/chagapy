@@ -10,6 +10,8 @@ public:
     Point();
     Point(const double &x, const double &y);
     void print() const;
+    const double get_x() const;
+    const double get_y() const;
     friend void print(const Point &pt);
     friend Point operator+(const Point &pt1, const Point &pt2);
     friend Point operator-(const Point &pt1, const Point &pt2);

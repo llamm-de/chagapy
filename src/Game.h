@@ -6,6 +6,7 @@
 #include "Point.h"
 #include <vector>
 #include <memory>
+#include <string>
 
 class Game
 {
@@ -25,6 +26,7 @@ public:
     const Point play_round();
     void run();
     std::vector<Point> get_results() const;
+    friend void export_csv(const std::string &if_name, const Game &game);
 
 private:
     void initialize_game();

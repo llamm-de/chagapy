@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <fstream>
 
 Game::Game()
     : m_num_rounds(100000), m_current_round(0)
@@ -76,4 +77,17 @@ void Game::initialize_game()
     srand(time(NULL)); // Reset random seed
     m_results.reserve(m_num_rounds);
     m_results.emplace_back();
+};
+
+// FRIEND FUNCTIONS
+void export_csv(const std::string &if_name, const Game &game)
+{
+    std::ofstream stream;
+    stream.open(if_name, std::ios::out);
+
+    for (auto const &point : game.m_results)
+    {
+        stream << point.get_x() << "," << point.get_y() << std::endl;
+    }
+    stream.close();
 };

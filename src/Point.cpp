@@ -11,6 +11,10 @@ void Point::print() const
     std::cout << "Point: (" << m_x << "," << m_y << ")" << std::endl;
 };
 
+const double Point::get_x() const { return m_x; };
+
+const double Point::get_y() const { return m_y; };
+
 void print(const Point &pt)
 {
     std::cout << "Point: (" << pt.m_x << "," << pt.m_y << ")" << std::endl;
