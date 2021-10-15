@@ -17,6 +17,15 @@ const Point &GeometricBase::operator[](int i) const
     return m_vertices.at(i);
 };
 
+const Point &GeometricBase::get_item(int i) const
+{
+    if (i >= m_vertices.size())
+    {
+        throw std::runtime_error("Index out of bounds!");
+    }
+    return m_vertices.at(i);
+};
+
 int GeometricBase::get_num_vertices() const { return m_num_vertices; };
 
 void GeometricBase::print() const

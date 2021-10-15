@@ -1,6 +1,6 @@
 venv/
 build/
-dependencies/*
+dependencies/
 .vscode/
 
 *.jpg

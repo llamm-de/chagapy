@@ -16,6 +16,7 @@ protected:
 public:
     GeometricBase(const int &num_vertices);
     const Point &operator[](int i) const;
+    const Point &get_item(int i) const;
     int get_num_vertices() const;
     void print() const;
 };

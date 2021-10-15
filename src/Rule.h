@@ -4,7 +4,7 @@
 class Rule
 {
 public:
-    bool is_fullfilled() const;
+    bool is_fullfilled(int dice) const;
     double get_jump_factor() const;
 };
 
