@@ -3,16 +3,11 @@ project(ChaGaPy VERSION 0.0.1)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(chagapy main.cpp
-                    "${PROJECT_SOURCE_DIR}/src/Point.cpp"
-                    "${PROJECT_SOURCE_DIR}/src/GeometricBase.cpp"
-                    "${PROJECT_SOURCE_DIR}/src/RegularConvexPolygon.cpp"
-                    "${PROJECT_SOURCE_DIR}/src/Rule.cpp"
-                    "${PROJECT_SOURCE_DIR}/src/Game.cpp")
+add_subdirectory(src)
+add_executable(chagapy main.cpp)
+target_link_libraries(chagapy cgp)
+target_include_directories(chagapy PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-target_include_directories(chagapy PUBLIC 
-                            "${PROJECT_SOURCE_DIR}/src"
-                            "${PROJECT_SOURCE_DIR}/extern/pybind11/include/")
 
 add_custom_target(release
 COMMAND ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Release ${CMAKE_SOURCE_DIR}
