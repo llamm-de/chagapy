@@ -1,9 +1,11 @@
 venv/
 build/
 dependencies/
+extern/
 .vscode/
 
 *.jpg
 *.png
+*.csv
 
 main.py

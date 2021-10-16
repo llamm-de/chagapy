@@ -13,9 +13,9 @@ void print(std::string str)
 
 int main()
 {
-
     std::shared_ptr<RegularConvexPolygon> base = std::make_shared<RegularConvexPolygon>(3, 1);
-    Game game(1000, base);
+    std::shared_ptr<Rule> rule = std::make_shared<Rule>(0.45f);
+    Game game(100000, base, rule);
     game.run();
     export_csv("test.csv", game);
 }

@@ -12,7 +12,7 @@ add_executable(chagapy main.cpp
 
 target_include_directories(chagapy PUBLIC 
                             "${PROJECT_SOURCE_DIR}/src"
-                            "${PROJECT_SOURCE_DIR}/dependencies/pybind11/include/")
+                            "${PROJECT_SOURCE_DIR}/extern/pybind11/include/")
 
 add_custom_target(release
 COMMAND ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Release ${CMAKE_SOURCE_DIR}
