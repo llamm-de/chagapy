@@ -9,8 +9,8 @@ private:
 public:
     Rule();
     Rule(const double &jump_factor);
-    bool is_fullfilled(int dice) const;
-    double get_jump_factor() const;
+    virtual bool is_fullfilled(int dice);
+    virtual double get_jump_factor() const;
 };
 
 #endif

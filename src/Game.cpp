@@ -89,7 +89,7 @@ void export_csv(const std::string &if_name, const Game &game)
     stream.open(if_name, std::ios::out);
 
     // Write header
-    stream << "X coordinate, Y coordinate, Reference point" << std::endl;
+    // stream << "x, y, reference" << std::endl;
 
     size_t count = 0;
     for (auto const &point : game.m_results)
