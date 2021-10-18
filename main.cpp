@@ -1,13 +1,15 @@
 #include "RegularCovexPolygon.h"
 #include "Rule.h"
 #include "UniqueRule.h"
+#include "NoNeighborRule.h"
 #include "Game.h"
 #include <memory>
 
 int main(int argc, char **argv)
 {
-    std::shared_ptr<RegularConvexPolygon> base = std::make_shared<RegularConvexPolygon>(4, 1);
-    std::shared_ptr<UniqueRule> rule = std::make_shared<UniqueRule>(0.5f);
+    int num_vertices = 5;
+    std::shared_ptr<RegularConvexPolygon> base = std::make_shared<RegularConvexPolygon>(num_vertices, 1);
+    std::shared_ptr<NoNeighborRule> rule = std::make_shared<NoNeighborRule>(num_vertices);
     Game game(100000, base, rule);
     game.run();
     export_csv("test.csv", game);
