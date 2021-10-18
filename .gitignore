@@ -3,6 +3,7 @@ build/
 dependencies/
 extern/
 .vscode/
+python_bindings/
 
 *.jpg
 *.png
