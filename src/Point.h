@@ -13,6 +13,7 @@ public:
     const double get_x() const;
     const double get_y() const;
     friend void print(const Point &pt);
+    friend double get_distance(const Point &pt1, const Point &pt2);
     friend Point operator+(const Point &pt1, const Point &pt2);
     friend Point operator-(const Point &pt1, const Point &pt2);
     friend Point operator*(const double &number, const Point &pt);

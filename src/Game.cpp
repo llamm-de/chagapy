@@ -57,6 +57,7 @@ const Point Game::play_round()
     m_current_round++;
     m_results_references.push_back(dice);
     Point next_pt = m_rule->get_jump_factor() * (m_base->get_item(dice) + m_results.back());
+    m_results_distances.push_back(get_distance(next_pt, m_base->get_item(dice)));
     return next_pt;
 };
 
@@ -78,8 +79,10 @@ void Game::initialize_game()
     srand(time(NULL)); // Reset random seed
     m_results.reserve(m_num_rounds);
     m_results_references.reserve(m_num_rounds);
+    m_results_distances.reserve(m_num_rounds);
     m_results.emplace_back();
     m_results_references.push_back(0);
+    m_results_distances.push_back(0);
 };
 
 // FRIEND FUNCTIONS
@@ -94,7 +97,7 @@ void export_csv(const std::string &if_name, const Game &game)
     size_t count = 0;
     for (auto const &point : game.m_results)
     {
-        stream << point.get_x() << "," << point.get_y() << "," << game.m_results_references.at(count) << std::endl;
+        stream << point.get_x() << "," << point.get_y() << "," << game.m_results_references.at(count) << "," << game.m_results_distances.at(count) << std::endl;
         count++;
     }
     stream.close();

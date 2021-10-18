@@ -1,6 +1,7 @@
 #include "Point.h"
 
 #include <iostream>
+#include <cmath>
 
 Point::Point() : m_x(0), m_y(0){};
 
@@ -18,6 +19,12 @@ const double Point::get_y() const { return m_y; };
 void print(const Point &pt)
 {
     std::cout << "Point: (" << pt.m_x << "," << pt.m_y << ")" << std::endl;
+};
+
+double get_distance(const Point &pt1, const Point &pt2)
+{
+    Point vec = pt1 - pt2;
+    return sqrt(pow(vec.m_x, 2) + pow(vec.m_y, 2));
 };
 
 Point operator+(const Point &pt1, const Point &pt2)

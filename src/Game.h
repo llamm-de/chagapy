@@ -17,6 +17,7 @@ private:
     std::shared_ptr<Rule> m_rule;
     std::vector<Point> m_results;
     std::vector<int> m_results_references;
+    std::vector<double> m_results_distances;
 
 public:
     Game();
