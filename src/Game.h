@@ -16,6 +16,7 @@ private:
     std::shared_ptr<GeometricBase> m_base;
     std::shared_ptr<Rule> m_rule;
     std::vector<Point> m_results;
+    std::vector<int> m_results_references;
 
 public:
     Game();
