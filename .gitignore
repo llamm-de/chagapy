@@ -8,5 +8,3 @@ python_bindings/
 *.jpg
 *.png
 *.csv
-
-main.py
