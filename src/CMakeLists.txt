@@ -4,6 +4,8 @@ set(SOURCE "Point.cpp"
            "RegularConvexPolygon.cpp"
            "Rule.cpp"
            "UniqueRule.cpp"
-           "NoNeighborRule.cpp")
+           "NeighborRule.cpp"
+           "NoNeighborRule.cpp"
+           "GameFactory.cpp")
 
 add_library(cgp ${SOURCE})
