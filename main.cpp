@@ -1,6 +1,12 @@
 #include "GameFactory.h"
 #include "Game.h"
+
+#include "CLI/App.hpp"
+#include "CLI/Formatter.hpp"
+#include "CLI/Config.hpp"
+
 #include <memory>
+#include <iostream>
 
 /*
 *   Command line call:
@@ -13,10 +19,26 @@
 */
 int main(int argc, char **argv)
 {
-    int num_vertices = 5;
+
+    CLI::App app{"CHAGAPY - A Chaos Game Implementation"};
+
+    std::string rules = "default";
+    int num_vertices = 3;
+    double jump_size = 0.5f;
     unsigned int num_rounds = 100000;
-    GameFactory factory("Polygon_UniqueRule", num_rounds);
+    std::string out_file = "test.csv";
+    app.add_option("-g,--game", rules, "Rules for the game.");
+    app.add_option("-r,--rounds", num_rounds, "Number of rounds to play");
+    app.add_option("-v,--vertices", num_vertices, "Number of vertices for polygon base.");
+    app.add_option("-j,--jump-size", jump_size, "Jump size factor.");
+    app.add_option("-o,--out", out_file, "Output file");
+
+    CLI11_PARSE(app, argc, argv);
+
+    std::cout << rules << std::endl;
+
+    GameFactory factory(rules, num_rounds);
     Game game = factory.create(num_vertices);
     game.run();
-    export_csv("test.csv", game);
+    export_csv(out_file, game);
 }
