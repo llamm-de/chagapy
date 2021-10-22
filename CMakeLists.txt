@@ -11,6 +11,9 @@ target_include_directories(chagapy PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
 ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/CLI11/include)
 
 
+install(TARGETS chagapy DESTINATION bin)
+
+
 add_custom_target(release
 COMMAND ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Release ${CMAKE_SOURCE_DIR}
 COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target all

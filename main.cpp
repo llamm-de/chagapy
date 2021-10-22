@@ -35,10 +35,12 @@ int main(int argc, char **argv)
 
     CLI11_PARSE(app, argc, argv);
 
-    std::cout << rules << std::endl;
-
     GameFactory factory(rules, num_rounds);
     Game game = factory.create(num_vertices);
+
+    std::cout << "Running game..." << std::endl;
     game.run();
+
+    std::cout << "Exporting results..." << std::endl;
     export_csv(out_file, game);
 }
