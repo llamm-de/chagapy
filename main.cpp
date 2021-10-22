@@ -5,7 +5,6 @@
 #include "CLI/Formatter.hpp"
 #include "CLI/Config.hpp"
 
-#include <memory>
 #include <iostream>
 
 /*
