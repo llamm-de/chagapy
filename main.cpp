@@ -1,5 +1,6 @@
 #include "GameFactory.h"
 #include "Game.h"
+#include "Misc.h"
 
 #include "CLI/App.hpp"
 #include "CLI/Formatter.hpp"
@@ -7,24 +8,17 @@
 
 #include <iostream>
 
-/*
-*   Command line call:
-*   
-*   chagapy                                  -> Default model (3 vertices, Std.-Rule, 0.5 jump)
-*   chagapy GAME_NAME                        -> (3 vertices, 0.5 jump, Rule determined by GAME_NAME)
-*   chagapy GAME_NAME NUM_VERTICES           -> (NUM_VERTICES vertices, 0.5 jump, Rule determined by GAME_NAME)
-*   chagapy GAME_NAME NUM_VERTICES JUMP_SIZE -> (NUM_VERTICES vertices, JUMP_SIZE jump, Rule determined by GAME_NAME)
-*
-*/
 int main(int argc, char **argv)
 {
+
+    print_welcome();
 
     CLI::App app{"CHAGAPY - A Chaos Game Implementation"};
 
     std::string rules = "default";
     int num_vertices = 3;
     double jump_size = 0.5f;
-    unsigned int num_rounds = 100000;
+    unsigned int num_rounds = 100;
     std::string out_file = "test.csv";
     app.add_option("-g,--game", rules, "Rules for the game.");
     app.add_option("-r,--rounds", num_rounds, "Number of rounds to play");
@@ -37,13 +31,12 @@ int main(int argc, char **argv)
     GameFactory factory(rules, num_rounds);
     Game game = factory.create(num_vertices);
 
-    std::cout << "Running game..." << std::endl;
+    std::cout << "   Running game...";
     game.run();
-<<<<<<< HEAD
-    export_csv("../python/test2.csv", game);
-=======
+    std::cout << "DONE!" << std::endl;
 
-    std::cout << "Exporting results..." << std::endl;
+    std::cout << "   Exporting results...";
     export_csv(out_file, game);
->>>>>>> 1661ae5c9e6c63d8c956fcbb13d57455c3c8c46a
+    std::cout << "DONE!" << std::endl;
+    print_string("");
 }
