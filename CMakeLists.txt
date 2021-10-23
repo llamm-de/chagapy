@@ -4,9 +4,14 @@ project(ChaGaPy VERSION 0.0.1)
 set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(src)
+add_subdirectory(dependencies/CLI11)
 add_executable(chagapy main.cpp)
 target_link_libraries(chagapy cgp)
-target_include_directories(chagapy PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(chagapy PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
+${CMAKE_CURRENT_SOURCE_DIR}/dependencies/CLI11/include)
+
+
+install(TARGETS chagapy DESTINATION bin)
 
 
 add_custom_target(release
