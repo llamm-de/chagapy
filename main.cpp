@@ -18,5 +18,5 @@ int main(int argc, char **argv)
     GameFactory factory("Polygon_UniqueRule", num_rounds);
     Game game = factory.create(num_vertices);
     game.run();
-    export_csv("test.csv", game);
+    export_csv("../python/test2.csv", game);
 }
