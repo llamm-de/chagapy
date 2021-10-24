@@ -7,6 +7,8 @@ set(SOURCE "Point.cpp"
            "NeighborRule.cpp"
            "NoNeighborRule.cpp"
            "GameFactory.cpp"
+           "BaseFactory.cpp"
+           "RuleFactory.cpp"
            "Misc.cpp")
 
 add_library(cgp ${SOURCE})

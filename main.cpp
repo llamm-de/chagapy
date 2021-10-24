@@ -15,12 +15,12 @@ int main(int argc, char **argv)
 
     CLI::App app{"CHAGAPY - A Chaos Game Implementation"};
 
-    std::string rules = "default";
+    std::string rule_name = "default";
     int num_vertices = 3;
     double jump_size = 0.5f;
-    unsigned int num_rounds = 100;
+    unsigned int num_rounds = 100000;
     std::string out_file = "test.csv";
-    app.add_option("-g,--game", rules, "Rules for the game.");
+    app.add_option("-g,--game", rule_name, "Rules for the game.");
     app.add_option("-r,--rounds", num_rounds, "Number of rounds to play");
     app.add_option("-v,--vertices", num_vertices, "Number of vertices for polygon base.");
     app.add_option("-j,--jump-size", jump_size, "Jump size factor.");
@@ -28,8 +28,8 @@ int main(int argc, char **argv)
 
     CLI11_PARSE(app, argc, argv);
 
-    GameFactory factory(rules, num_rounds);
-    Game game = factory.create(num_vertices);
+    GameFactory factory;
+    Game game = factory.create(num_rounds, rule_name, num_vertices, jump_size);
 
     std::cout << "   Running game...";
     game.run();
