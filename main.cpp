@@ -10,9 +10,6 @@
 
 int main(int argc, char **argv)
 {
-
-    print_welcome();
-
     CLI::App app{"CHAGAPY - A Chaos Game Implementation"};
 
     std::string rule_name = "default";
@@ -27,6 +24,8 @@ int main(int argc, char **argv)
     app.add_option("-o,--out", out_file, "Output file");
 
     CLI11_PARSE(app, argc, argv);
+
+    print_welcome(rule_name, num_vertices, jump_size, num_rounds, out_file);
 
     GameFactory factory;
     Game game = factory.create(num_rounds, rule_name, num_vertices, jump_size);

@@ -9,7 +9,7 @@ Game GameFactory::create(const unsigned int &num_rounds, const std::string &rule
 {
     BaseFactory base_factory;
     RuleFactory rule_factory;
-    std::shared_ptr<GeometricBase> base = base_factory.create();
+    std::shared_ptr<GeometricBase> base = base_factory.create("", num_vertices);
     std::shared_ptr<Rule> rule = rule_factory.create(rule_name, base, jump_size);
     return Game(num_rounds, base, rule);
 }
