@@ -12,3 +12,4 @@ set(SOURCE "Point.cpp"
            "Misc.cpp")
 
 add_library(cgp ${SOURCE})
+target_include_directories(cgp PUBLIC ${CMAKE_SOURCE_DIR}/includes)

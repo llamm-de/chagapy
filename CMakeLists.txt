@@ -8,6 +8,7 @@ add_subdirectory(dependencies/CLI11)
 add_executable(chagapy main.cpp)
 target_link_libraries(chagapy cgp)
 target_include_directories(chagapy PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
+${CMAKE_CURRENT_SOURCE_DIR}/includes
 ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/CLI11/include)
 
 
