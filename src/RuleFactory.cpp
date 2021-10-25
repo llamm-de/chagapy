@@ -12,7 +12,7 @@ std::shared_ptr<Rule> RuleFactory::create(const std::string &rule_name, std::sha
     }
     else if (rule_name.compare("NoNeighbor") == 0)
     {
-        return std::make_shared<NoNeighborRule>((base->get_num_vertices(), jump_size));
+        return std::make_shared<NoNeighborRule>(base->get_num_vertices(), jump_size);
     }
     else
     {

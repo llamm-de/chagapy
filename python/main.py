@@ -5,7 +5,7 @@ import subprocess
 
 
 def run_chagapy():
-    subprocess.run(["chagapy", "-g", "Unique", "-v", "5"])
+    subprocess.run(["chagapy", "-g", "NoNeighbor", "-v", "5"])
 
 
 def set_coloring(dataset):
